@@ -48,4 +48,4 @@ class SingupPage {
      
 }
 
-export default SingupPage;
+export default new SingupPage;
