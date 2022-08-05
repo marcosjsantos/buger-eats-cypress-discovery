@@ -4,7 +4,7 @@
         "cpf": "00000078910",
         "email": "marcosjsantosmjs@gmail.com",
         "whatsapp": "19999999999",
-        "address":{
+        "address": {
             "postalcode": "13178585",
             "street": "Avenida José Carlos Amaral",
             "number": "007",
@@ -15,13 +15,28 @@
         "delivery_method": "Moto",
         "cnh": "cnh-digital.jpg"
     },
-
     "cpf_inv": {
         "name": "Maria Clara",
         "cpf": "A00000789AB",
         "email": "maria.clara@gmail.com",
         "whatsapp": "19999999999",
-        "address":{
+        "address": {
+            "postalcode": "13178585",
+            "street": "Avenida José Carlos Amaral",
+            "number": "007",
+            "details": "AP 72",
+            "district": "Loteamento Residencial Viva Vista",
+            "city_state": "Sumaré/SP"
+        },
+        "delivery_method": "Moto",
+        "cnh": "cnh-digital.jpg"
+    },
+    "email_inv": {
+        "name": "Marcos Santos",
+        "cpf": "00000078910",
+        "email": "marcosjsantosmjs.com",
+        "whatsapp": "19999999999",
+        "address": {
             "postalcode": "13178585",
             "street": "Avenida José Carlos Amaral",
             "number": "007",

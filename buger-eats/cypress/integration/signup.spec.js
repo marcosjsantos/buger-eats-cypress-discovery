@@ -1,6 +1,6 @@
 import signup from '../pages/SingupPage'
 
-describe('Cadastro', () => {
+describe('Signup', () => {
 
     beforeEach(function () {
         cy.fixture('deliver').then((d) => {
@@ -8,7 +8,7 @@ describe('Cadastro', () => {
         })
     })
 
-    it('O usuário deve se tornar um entregador', function () {
+    it('User should be deliver', function () {
 
         signup.go()
         signup.fillForm(this.deliver.signup)
@@ -19,12 +19,21 @@ describe('Cadastro', () => {
 
     })
 
-    it('CPF Incorreto', function () {
+    it('Incorrect document', function () {
 
         signup.go()
         signup.fillForm(this.deliver.cpf_inv)
         signup.submit()
         signup.alertMerssageShouldBe('Oops! CPF inválido')
+
+    })
+
+    it('Incorrect Email', function () {
+
+        signup.go()
+        signup.fillForm(this.deliver.email_inv)
+        signup.submit()
+        signup.alertMerssageShouldBe('Oops! Email com formato inválido.')
 
     })
 })

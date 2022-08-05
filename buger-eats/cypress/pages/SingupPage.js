@@ -10,7 +10,7 @@ class SingupPage {
     }
 
     fillForm(deliver){
-        cy.get('input[name="name"]').type(deliver.name)
+        cy.get('input[name="fullName"]').type(deliver.name)
         cy.get('input[name="cpf"]').type(deliver.cpf)
         cy.get('input[name="email"]').type(deliver.email)
         cy.get('input[name="whatsapp"]').type(deliver.whatsapp)
@@ -26,7 +26,7 @@ class SingupPage {
         cy.get('input[name="city-uf"]').should('have.value', deliver.address.city_state)
         
         cy.contains('li',"Moto")
-        cy.get('.delivery-method li').contains("Bicicleta")
+        cy.get('.delivery-method li').contains("Bike Elétrica")
         cy.get('.delivery-method li').contains("Van/Carro")
                 
         cy.contains('.delivery-method li', deliver.delivery_method).click()
