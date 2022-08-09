@@ -1,4 +1,4 @@
-import signup from '../pages/SingupPage'
+import SignupPage from '../pages/SignupPage'
 import signupFactory from '../factories/SignupFactory'
 
 describe('Signup', () => {
@@ -13,12 +13,12 @@ describe('Signup', () => {
 
         var deliver = signupFactory.deliver()
 
-        signup.go()
-        signup.fillForm(deliver)
-        signup.submit()
+        SignupPage.go()
+        SignupPage.fillForm(deliver)
+        SignupPage.submit()
 
         const expectedMessage = 'Recebemos os seus dados. Fique de olho na sua caixa de email, pois e em breve retornamos o contato.'
-        signup.modalContentShouldBe(expectedMessage)
+        SignupPage.modalContentShouldBe(expectedMessage)
 
     })
 
@@ -28,10 +28,10 @@ describe('Signup', () => {
 
         deliver.cpf = '000000141aa'
 
-        signup.go()
-        signup.fillForm(deliver)
-        signup.submit()
-        signup.alertMerssageShouldBe('Oops! CPF inválido')
+        SignupPage.go()
+        SignupPage.fillForm(deliver)
+        SignupPage.submit()
+        SignupPage.alertMerssageShouldBe('Oops! CPF inválido')
 
     })
 
@@ -41,10 +41,22 @@ describe('Signup', () => {
         
         deliver.email = 'user.com.br'
 
-        signup.go()
-        signup.fillForm(deliver)
-        signup.submit()
-        signup.alertMerssageShouldBe('Oops! Email com formato inválido.')
+        SignupPage.go()
+        SignupPage.fillForm(deliver)
+        SignupPage.submit()
+        SignupPage.alertMerssageShouldBe('Oops! Email com formato inválido.')
 
+    })
+
+    it('Required fields', function(){
+        SignupPage.go()
+        SignupPage.submit()
+        SignupPage.alertMerssageShouldBe('É necessário informar o nome')
+        SignupPage.alertMerssageShouldBe('É necessário informar o CPF')
+        SignupPage.alertMerssageShouldBe('É necessário informar o email')
+        SignupPage.alertMerssageShouldBe('É necessário informar o CEP')
+        SignupPage.alertMerssageShouldBe('É necessário informar o número do endereço')
+        SignupPage.alertMerssageShouldBe('Selecione o método de entrega')
+        SignupPage.alertMerssageShouldBe('Adicione uma foto da sua CNH')
     })
 })

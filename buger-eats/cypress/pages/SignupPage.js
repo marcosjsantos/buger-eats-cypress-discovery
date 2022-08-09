@@ -1,6 +1,6 @@
 
 
-class SingupPage {
+class SignupPage {
 
     go() {
         cy.visit('/')
@@ -48,4 +48,4 @@ class SingupPage {
      
 }
 
-export default new SingupPage;
+export default new SignupPage;
