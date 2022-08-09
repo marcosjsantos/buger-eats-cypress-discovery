@@ -38,7 +38,7 @@ describe('Signup', () => {
     it('Incorrect Email', function () {
 
         var deliver = signupFactory.deliver()
-        
+
         deliver.email = 'user.com.br'
 
         SignupPage.go()
@@ -48,15 +48,28 @@ describe('Signup', () => {
 
     })
 
-    it('Required fields', function(){
-        SignupPage.go()
-        SignupPage.submit()
-        SignupPage.alertMerssageShouldBe('É necessário informar o nome')
-        SignupPage.alertMerssageShouldBe('É necessário informar o CPF')
-        SignupPage.alertMerssageShouldBe('É necessário informar o email')
-        SignupPage.alertMerssageShouldBe('É necessário informar o CEP')
-        SignupPage.alertMerssageShouldBe('É necessário informar o número do endereço')
-        SignupPage.alertMerssageShouldBe('Selecione o método de entrega')
-        SignupPage.alertMerssageShouldBe('Adicione uma foto da sua CNH')
+    context('Required fields', function () {
+
+        const messages = [
+            { field: 'name', output: 'É necessário informar o nome' },
+            { field: 'cpf', output: 'É necessário informar o CPF' },
+            { field: 'email', output: 'É necessário informar o email' },
+            { field: 'postalcode', output: 'É necessário informar o CEP' },
+            { field: 'number', output: 'É necessário informar o número do endereço' },
+            { field: 'delivery_method', output: 'Selecione o método de entrega' },
+            { field: 'cnh', output: 'Adicione uma foto da sua CNH' }
+        ]
+
+        before(function(){
+            SignupPage.go()
+            SignupPage.submit()
+        })
+
+        messages.forEach(function(msg){
+            it(`${msg.field} is required`, function(){
+                SignupPage.alertMerssageShouldBe(msg.output)
+            })
+        })
     })
+
 })
