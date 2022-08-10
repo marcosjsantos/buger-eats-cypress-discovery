@@ -1,5 +1,4 @@
 
-
 describe('Home Page', ()=>{
     it('App deve estar online', ()=>{
         cy.viewport(1440, 900)
