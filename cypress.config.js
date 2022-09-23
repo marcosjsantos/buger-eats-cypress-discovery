@@ -4,8 +4,7 @@ module.exports = defineConfig({
   projectId: 'uv5sga',
   viewportWidth: 1440,
   viewportHeight: 900,
-  integrationFolder: ".",
-  testFiles: "**.e2e.js",
+  specPattern: 'cypress/e2e/**/*.{js,jsx,ts,tsx}',
   e2e: {
     // We've imported your old cypress plugins here.
     // You may want to clean this up later by importing these.
